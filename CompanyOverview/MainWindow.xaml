@@ -1,0 +1,105 @@
+﻿<Window x:Class="CompanyOverview.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompanyOverview"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="Height" Width="800">
+    <StackPanel>
+        <Label Content="Stock Data Checker" Height="50" HorizontalAlignment="Center" VerticalContentAlignment="Center" Width="Auto"  FontWeight="Bold" FontSize="20" Foreground="DarkSlateBlue"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Label Grid.Column="0" Content="Select Ticker" HorizontalAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <TextBox Name="tbTicker" Text="" Width="100" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Button Name="SearchButton" Content="Search" Width="100" Height="25" Click="Search_Click" Margin="10">
+                </Button>
+                <Button Name="ClearButton" Content="Clear" Width="100" Height="25" Click="Clear_Click">
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <Label Content="Sector" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Industry" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Employees" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Market Cap" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="EBITDA" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="PE Ratio" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="PEG Ratio" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Book Value" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Dividend/Share" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Dividend Yield" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="EPS" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Revenue/Share" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Profit Margin" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Operating Profit Margin TTM" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="ROE TTM" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Revenue TTM" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Quarterly Earnings Growth YOY" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Quarterly Revenue Growth YOY" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="ANALYST TARGET" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Trailing PE" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Forward PE" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Shares Float" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Shares Short" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Share Short Prior Month" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Short Ratio" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Short Percent Float" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="% Insiders" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="% Instituitions" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Dividend Date" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Ex Dividend Date" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Last Split Factor" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+                <Label Content="Last Split Date" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Margin="0 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Name="lblvalues" Grid.Column="2" HorizontalAlignment="Left" >
+                <Label Name="lblSector" Content="" Height="Auto"/>
+                <Label Name="lblIndustry" Content="" Height="Auto"/>
+                <Label Name="lblFullTimeEmployees" Content="" Height="Auto"/>
+                <Label Name="lblMarketCapitalization" Content="" Height="Auto" />
+                <Label Name="lblEBITDA" Content="" Height="Auto"/>
+                <Label Name="lblPERatio" Content="" Height="Auto"/>
+                <Label Name="lblPEGRatio" Content="" Height="Auto"/>
+                <Label Name="lblBookValue" Content="" Height="Auto"/>
+                <Label Name="lblDividendPerShare" Content="" Height="Auto"/>
+                <Label Name="lblDividendYield" Content="" Height="Auto"/>
+                <Label Name="lblEPS" Content="" Height="Auto"/>
+                <Label Name="lblRevenuePerShareTTM" Content="" Height="Auto"/>
+                <Label Name="lblProfitMargin" Content="" Height="Auto" />
+                <Label Name="lblOperatingMarginTTM" Content="" Height="Auto"/>
+                <Label Name="lblReturnOnEquityTTM" Content="" Height="Auto"/>
+                <Label Name="lblRevenueTTM" Content="" Height="Auto"/>
+                <Label Name="lblQuarterlyEarningsGrowthYOY" Content="" Height="Auto"/>
+                <Label Name="lblQuarterlyRevenueGrowthYOY" Content="" Height="Auto"/>
+                <Label Name="lblAnalystTargetPrice" Content="" Height="Auto"/>
+                <Label Name="lblTrailingPE" Content="" Height="Auto"/>
+                <Label Name="lblForwardPE" Content="" Height="Auto"/>
+                <Label Name="lblSharesFloat" Content="" Height="Auto" />
+                <Label Name="lblSharesShort" Content="" Height="Auto"/>
+                <Label Name="lblSharesShortPriorMonth" Content="" Height="Auto"/>
+                <Label Name="lblShortRatio" Content="" Height="Auto"/>
+                <Label Name="lblShortPercentFloat" Content="" Height="Auto"/>
+                <Label Name="lblPercentInsiders" Content="" Height="Auto"/>
+                <Label Name="lblPercentInstitutions" Content="" Height="Auto"/>
+                <Label Name="lblDividendDate" Content="" Height="Auto"/>
+                <Label Name="lblExDividendDate" Content="" Height="Auto"/>
+                <Label Name="lblLastSplitFactor" Content="" Height="Auto" />
+                <Label Name="lblLastSplitDate" Content="" Height="Auto"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="3">
+                <Label Content="Description" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="tbDescription" Text="" TextWrapping="Wrap" Height="355" Margin="0,0,10,0"/>
+            </StackPanel>
+
+        </Grid>
+    </StackPanel>
+</Window>
